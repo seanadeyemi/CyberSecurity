@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AA895B29-6FED-45BA-BB7E-9A6F79107007}</ProjectGuid>
+    <ProjectGuid>{46EC4A31-264A-42C4-A958-A61AA014475B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CyberSecurity</RootNamespace>
-    <AssemblyName>CyberSecurity</AssemblyName>
+    <RootNamespace>SymmetricEncryption</RootNamespace>
+    <AssemblyName>SymmetricEncryption</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

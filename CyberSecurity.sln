@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSecurity", "CyberSecurity\CyberSecurity.csproj", "{AA895B29-6FED-45BA-BB7E-9A6F79107007}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing", "Hashing\Hashing.csproj", "{A9241AB8-1994-469D-9826-90842832FDE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SymmetricEncryption", "SymmetricEncryption\SymmetricEncryption.csproj", "{46EC4A31-264A-42C4-A958-A61AA014475B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicPrivateKeyEncryption", "PublicPrivateKeyEncryption\PublicPrivateKeyEncryption.csproj", "{2FBBDF4D-6B61-451A-B6D5-B867008115DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{AA895B29-6FED-45BA-BB7E-9A6F79107007}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA895B29-6FED-45BA-BB7E-9A6F79107007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA895B29-6FED-45BA-BB7E-9A6F79107007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9241AB8-1994-469D-9826-90842832FDE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9241AB8-1994-469D-9826-90842832FDE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9241AB8-1994-469D-9826-90842832FDE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9241AB8-1994-469D-9826-90842832FDE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46EC4A31-264A-42C4-A958-A61AA014475B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46EC4A31-264A-42C4-A958-A61AA014475B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46EC4A31-264A-42C4-A958-A61AA014475B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46EC4A31-264A-42C4-A958-A61AA014475B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FBBDF4D-6B61-451A-B6D5-B867008115DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FBBDF4D-6B61-451A-B6D5-B867008115DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FBBDF4D-6B61-451A-B6D5-B867008115DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FBBDF4D-6B61-451A-B6D5-B867008115DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

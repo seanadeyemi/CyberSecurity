@@ -1,15 +1,98 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Security.Permissions;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CyberSecurity
 {
+
+    public class Document
+    {
+        [PrincipalPermission(SecurityAction.Demand, Name = "Oriahi")]
+        public string GetFile()
+        {
+            return "The main file";
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = "Manager")]
+        public string GetName()
+        {
+            return "The main name";
+        }
+
+
+    }
+
+
+
     class Program
     {
+
+
+
+
         static void Main(string[] args)
         {
+            GenericIdentity id = new GenericIdentity("Chuks");
+            GenericPrincipal p = new GenericPrincipal(id, new string[] { "Manager" });
+
+            //alternative 
+            //PrincipalPermission pp = new PrincipalPermission("Gaby", null);
+            //pp.Demand();
+
+
+            Thread.CurrentPrincipal = p;
+
+
+            Document doc = new Document();
+            //var str = doc.GetFile();
+
+            //var str2 = doc.GetName();
+
+            /////////////////////////////////
+            //File Encrypt and Decrypt
+
+
+            File.WriteAllText("ourText.txt", "This is a secret message from Chuks to the world");
+            File.Encrypt("ourText.txt");
+
+            string txt = File.ReadAllText("ourText.txt");
+            File.Decrypt("ourText.txt");
+
+
+
+
+            /////////////////////////////////////
+            /*Protected Data*/
+
+            byte[] stuff = {15, 17, 22, 45, 76 };
+
+            DataProtectionScope scope = DataProtectionScope.CurrentUser;
+
+            byte[] encryptedData = ProtectedData.Protect(stuff, null, scope);
+
+            byte[] decryptedData = ProtectedData.Unprotect(encryptedData, null, scope);
+
+            /****************************************************/
+
+
+
+            Console.WriteLine(txt);
+
+            //Console.WriteLine(str);
+            //Console.WriteLine(str2);
+            Console.ReadLine();
+
+
+
+
+
         }
     }
 }
