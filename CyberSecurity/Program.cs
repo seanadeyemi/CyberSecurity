@@ -9,9 +9,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+
+
 namespace CyberSecurity
 {
-
+    
+    [SecurityPermission(SecurityAction.InheritanceDemand)] 
     public class Document
     {
         [PrincipalPermission(SecurityAction.Demand, Name = "Oriahi")]
@@ -20,10 +23,23 @@ namespace CyberSecurity
             return "The main file";
         }
 
+        //Declarative
         [PrincipalPermission(SecurityAction.Demand, Role = "Manager")]
         public string GetName()
         {
             return "The main name";
+        }
+
+        [RegistryPermission(SecurityAction.Demand)]
+        public string RegistryValues()
+        {
+            return "The main value";
+        }
+
+        [SecurityPermission(SecurityAction.LinkDemand)]
+        public int GetNumber()
+        {
+            return 0;
         }
 
 
@@ -42,9 +58,32 @@ namespace CyberSecurity
             GenericIdentity id = new GenericIdentity("Chuks");
             GenericPrincipal p = new GenericPrincipal(id, new string[] { "Manager" });
 
-            //alternative 
+
+            //WindowsIdentity wid = WindowsIdentity.GetCurrent();
+            //WindowsPrincipal wp = new WindowsPrincipal(wid);
+            //string name = wp.Identity.Name;
+            //string type = wp.Identity.AuthenticationType;
+            //var auth = wp.Identity.IsAuthenticated;
+
+            //AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
+            //WindowsPrincipal WinPrinc = (WindowsPrincipal)Thread.CurrentPrincipal;
+
+            //Console.WriteLine(Thread.CurrentPrincipal.Identity.Name);
+            //Console.WriteLine(name);
+            //Console.WriteLine(type);
+            //Console.WriteLine(auth);
+
+
+            //alternative (imperative)
             //PrincipalPermission pp = new PrincipalPermission("Gaby", null);
             //pp.Demand();
+
+
+            //FileIOPermission fp = new FileIOPermission(FileIOPermissionAccess.Read| FileIOPermissionAccess.Write, "picture.jpg");
+            //fp.Demand();
+
+            //RegistryPermission rp = new RegistryPermission(RegistryPermissionAccess.Read, "");
+            //rp.Demand();
 
 
             Thread.CurrentPrincipal = p;

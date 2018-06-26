@@ -15,10 +15,12 @@ namespace PublicPrivateKeyEncryption
             //byte[] publickey;
             //byte[] publicPrivatekey;
 
-            //Gaby expects a message so he prepares a public and private key
+            //Gaby expects a message from lola so he prepares a public and private key
             //he sends the public key to lola
             using (var rsa = new RSACryptoServiceProvider())
             {
+
+                //we'll use these if we want to save the keys to byte arrays instead
                 //publickey = rsa.ExportCspBlob(false);
                 //publicPrivatekey = rsa.ExportCspBlob(true);
 
@@ -40,6 +42,7 @@ namespace PublicPrivateKeyEncryption
             {
                 string publicKey = File.ReadAllText("PublicKey.xml");
 
+                //we'll use this if we are bringing in  the public key from a byte array
                 //rsaSender.ImportCspBlob(publickey);
 
                 rsaSender.FromXmlString(publicKey);
@@ -50,6 +53,7 @@ namespace PublicPrivateKeyEncryption
             //Gaby has received the encrypted message
             //He uses his public private key which he had stored to decrypt Lolas message
             byte[] decryptedMessage;
+            string message;
             using (var rsaReceiver = new RSACryptoServiceProvider())
             {
                 string publicPrivateKey = File.ReadAllText("PublicAndPrivateKey.xml");
@@ -58,10 +62,10 @@ namespace PublicPrivateKeyEncryption
 
                 decryptedMessage = rsaReceiver.Decrypt(encryptedData, true);
 
-                string message = Encoding.UTF8.GetString(decryptedMessage);
+                 message = Encoding.UTF8.GetString(decryptedMessage);
 
             }
-
+            Console.WriteLine(message);
             Console.ReadLine();
 
         }
