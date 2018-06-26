@@ -13,7 +13,7 @@ namespace ThreeDes
     {
 
         private readonly TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider();
-        // TripleDES des = TripleDES.Create();
+        TripleDES des2 = TripleDES.Create();
 
         private byte[] iv;
         private byte[] key;
